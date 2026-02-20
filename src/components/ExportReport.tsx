@@ -249,12 +249,12 @@ export default function ExportReport({ onClose }: ExportReportProps) {
         </div>
 
         {/* Hidden Report Content for PDF Generation */}
-        <div ref={reportRef} className="hidden bg-white">
+        <div ref={reportRef} style={{ position: 'absolute', left: '-9999px', top: 0 }} className="bg-white">
           
           {/* Page 1: Cover & Summary */}
-          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px' }}>
+          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px', width: '210mm' }}>
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-8 rounded-lg mb-6">
+            <div className="bg-green-600 text-white p-8 rounded-lg mb-6">
               <h1 className="text-4xl font-bold mb-3">AgriCortex Dashboard</h1>
               <h2 className="text-2xl mb-2">Complete Farm Analytics Report</h2>
               <p className="text-green-100 text-lg">Farm: {selectedPersona.name}</p>
@@ -345,13 +345,13 @@ export default function ExportReport({ onClose }: ExportReportProps) {
           </div>
 
           {/* Page 2: Sensor Data & Monitoring */}
-          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px' }}>
+          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px', width: '210mm' }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Real-Time Sensor Data</h2>
             
             {/* Sensor Cards */}
             <div className="grid grid-cols-2 gap-4 mb-6">
               {sensorData.map((sensor, index) => (
-                <div key={index} className="bg-gradient-to-br from-blue-50 to-green-50 border border-gray-200 rounded-lg p-4">
+                <div key={index} className="bg-blue-50 border border-gray-200 rounded-lg p-4">
                   <p className="text-sm text-gray-600 mb-2">{sensor.label}</p>
                   <p className="text-3xl font-bold text-gray-900">
                     {sensor.value}<span className="text-lg text-gray-600">{sensor.unit}</span>
@@ -404,7 +404,7 @@ export default function ExportReport({ onClose }: ExportReportProps) {
           </div>
 
           {/* Page 3: Soil Analytics */}
-          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px' }}>
+          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px', width: '210mm' }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Soil Analytics Report</h2>
             
             {/* NPK Levels */}
@@ -479,7 +479,7 @@ export default function ExportReport({ onClose }: ExportReportProps) {
             {/* Risk Assessment */}
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Yield Risk Forecast</h3>
-              <div className="bg-gradient-to-r from-green-50 to-yellow-50 border border-gray-200 rounded-lg p-6">
+              <div className="bg-yellow-50 border border-gray-200 rounded-lg p-6">
                 <div className="text-center mb-4">
                   <p className="text-5xl font-bold text-green-600">{afterData.riskScore}%</p>
                   <p className="text-gray-600 mt-2">Current Risk Score</p>
@@ -503,7 +503,7 @@ export default function ExportReport({ onClose }: ExportReportProps) {
           </div>
 
           {/* Page 4: Fertilizer & Financial */}
-          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px' }}>
+          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px', width: '210mm' }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Fertilizer ROI Analysis</h2>
             
             {/* Fertilizer Options */}
@@ -572,7 +572,7 @@ export default function ExportReport({ onClose }: ExportReportProps) {
           </div>
 
           {/* Page 5: IoT & Technology */}
-          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px' }}>
+          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px', width: '210mm' }}>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">IoT Device Status</h2>
             
             {/* Device Summary */}
@@ -645,7 +645,7 @@ export default function ExportReport({ onClose }: ExportReportProps) {
             {/* Government Subsidies */}
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Government Subsidy Insights</h3>
-              <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-gray-200 rounded-lg p-4 mb-4">
+              <div className="bg-blue-50 border border-gray-200 rounded-lg p-4 mb-4">
                 <div className="text-center">
                   <p className="text-3xl font-bold text-green-700">₹49,830</p>
                   <p className="text-sm text-gray-600 mt-1">Total Annual Subsidy Benefits</p>
@@ -676,14 +676,14 @@ export default function ExportReport({ onClose }: ExportReportProps) {
           </div>
 
           {/* Page 6: Footer */}
-          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px' }}>
+          <div className="pdf-page bg-white p-8" style={{ minHeight: '1000px', width: '210mm' }}>
             <div className="h-full flex flex-col justify-center">
               <div className="text-center mb-8">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">Thank You</h2>
                 <p className="text-xl text-gray-600">For using AgriCortex Dashboard</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg p-8 mb-8">
+              <div className="bg-green-600 text-white rounded-lg p-8 mb-8">
                 <h3 className="text-2xl font-bold mb-4">Report Summary</h3>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
